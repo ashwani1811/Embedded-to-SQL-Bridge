@@ -4,8 +4,8 @@
             "previewLimit": 50,
             "driver": "SQLite",
             "name": "My_IoT_DB",
-            "database": "sensor_data.db"
+            "database": "${workspaceFolder}/sensor_data.db"
         }
-    ]
-    "sqltools.useNodeRuntime": "C:\\Program Files\\nodejs\\node.exe",
+    ],
+    "sqltools.useNodeRuntime": true
 }

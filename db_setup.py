@@ -18,16 +18,16 @@ cursor.execute('''
 
 
 # Insert a "dummy" sensor reading
-cursor.execute('''
-    INSERT INTO telemetry (device_id, temperature, voltage, error_code)
-    VALUES ('DEV_001', 24.5, 3.3, 0)
-''')
+# cursor.execute('''
+#     INSERT INTO telemetry (device_id, temperature, voltage, error_code)
+#     VALUES ('DEV_001', 24.5, 3.3, 0)
+# ''')
 
 conn.commit()
 
-cursor.execute("SELECT * FROM telemetry")
-for row in cursor.fetchall():
-    print(row)
+# cursor.execute("SELECT * FROM telemetry")
+# for row in cursor.fetchall():
+#     print(row)
     
 conn.close()
 print("Database and table created successfully!")
