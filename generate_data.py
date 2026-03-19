@@ -28,5 +28,23 @@ for i in range(100):
     ''', (device, timestamp, temp, volts, error))
 
 conn.commit()
+
+
+
+# This device is added to test the query that finds devices with no 
+# telemetry data. It has no entries in the telemetry table.
+devices_metadata = [
+    ('TURBINE_B', 'Main-Floor', 'v2.1.0', '2024-11-20')
+]
+
+cursor.executemany('''INSERT OR IGNORE INTO device_info VALUES
+                   (?, ?, ?, ?)''', devices_metadata)
+
+
+
+conn.commit()
+
+
+
 conn.close()
 print("100 rows of telemetry data added to sensor_data.db!")

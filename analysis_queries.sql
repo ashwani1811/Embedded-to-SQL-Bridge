@@ -42,3 +42,15 @@ SELECT
 FROM telemetry AS t
 JOIN device_info AS i ON t.device_id = i.device_id
 WHERE t.error_code != 0 AND i.firmware_rev = 'v1.0.2';
+
+-- Find all devices that have never reported any telemetry data. This query 
+-- performs a LEFT JOIN between the device_info table and the telemetry table, 
+-- and filters for records where the device_id in the telemetry table is NULL, 
+-- indicating that there are no telemetry records for those devices.
+SELECT 
+    i.device_id, 
+    i.location
+FROM device_info AS i
+LEFT JOIN telemetry AS t 
+    ON i.device_id = t.device_id
+WHERE t.device_id IS NULL;
