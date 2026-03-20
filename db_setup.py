@@ -1,7 +1,13 @@
 import sqlite3
+import os
+
+db_file = 'sensor_data.db'
+if os.path.exists(db_file):
+    os.remove(db_file)
+    print("Old database cleared. Starting fresh...")
 
 # Connect to the database (it creates the file if it doesn't exist)
-conn = sqlite3.connect('sensor_data.db')
+conn = sqlite3.connect(db_file)
 cursor = conn.cursor()
 
 # Create a table that looks like a firmware data packet
